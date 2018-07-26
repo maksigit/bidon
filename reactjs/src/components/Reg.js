@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
+import {Link } from 'react-router-dom';
 
 class Reg extends Component {
 
@@ -42,6 +43,7 @@ class Reg extends Component {
 
           if (fromServer === undefined) {
             this.putToDb();
+            document.querySelector('.successfully').innerHTML = 'Вы успешно зарегестрировались перейдите на Главную для входа';
             document.querySelector('.error').innerHTML = ' '
           } else {
             document.querySelector('.error').innerHTML = 'Этот емаил зарегистрирован'
@@ -55,12 +57,14 @@ class Reg extends Component {
   render() {
     return (
       <div className="App">
+        <Link to='/'>Главная</Link>
         <form action="">
           <input type="text" placeholder="Введите E-mail" ref={(input) => {this.email = input}}/>
           <input type="text" placeholder="Введите пароль" ref={(input) => {this.password = input}}/>
           <button onClick={this.validRegister}>Зарегистрироватся</button>
         </form>
         <div className='error' style={{color:'red'}}> </div>
+        <div className='successfully' style={{color:'green'}}> </div>
       </div>
     );
   }
