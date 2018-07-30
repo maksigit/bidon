@@ -72,7 +72,6 @@ class Reg extends Component {
 
 export default connect(
   state => {
-    console.log('state from ComREG =>', state);
     return ({
       testStore: state
     })

@@ -13,8 +13,6 @@ import {HashRouter, Switch} from 'react-router-dom';
 import ToStore from './reducers/ToStore';
 
 const store = createStore(ToStore);
-console.log(store);
-console.log('eto state STORE =>', store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

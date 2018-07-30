@@ -4,6 +4,11 @@
       "id": 1,
       "email": "login@example.com",
       "password": "qwerty"
+    },
+    {
+      "email": "asd@ukr.net",
+      "password": "123",
+      "id": 2
     }
   ],
   "categories": [
