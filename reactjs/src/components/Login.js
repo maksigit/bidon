@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import {Link} from 'react-router-dom';
 
-// import LogComp from '../hoc/log-component'
+import MainPage from './MainPage'
 
 let fromServer = [];
 
@@ -15,7 +15,6 @@ class Login extends Component {
   };
 
   validRegister = (e) => {
-    ;
     e.preventDefault();
     fetch('http://localhost:3000/users')
       .then(response => response.json())
@@ -40,11 +39,9 @@ class Login extends Component {
   render() {
     return (
       <div className="App">
+        <div className='successfully' style={{color: 'green'}}> </div>
         {this.state.hasError ?
-          <div className="App">
-          <div>Привет {this.email.value}</div>
-          <div>Ваши маршруты</div>
-        </div> :
+          <MainPage login={this.email.value} /> :
           <form action="">
             <input type="text" placeholder="Введите E-mail" ref={(input) => {
               this.email = input
@@ -57,7 +54,6 @@ class Login extends Component {
           </form>
         }
         <div className='error' style={{color: 'red'}}> </div>
-        <div className='successfully' style={{color: 'green'}}> </div>
       </div>
     );
   }
